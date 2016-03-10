@@ -4,8 +4,22 @@
     </head>
 <body>
 <?php 
-     require("../model/DB.php");
-     $user=1;
+    require("../model/DB.php");
+    include_once('dbFunction.php');  
+    if(isset($_POST['welcome'])){  
+        // remove all session variables  
+        session_unset();   
+  
+        // destroy the session   
+        session_destroy();  
+    }  
+    if(!($_SESSION)){  
+        header("Location:index.php");  
+    }  
+     
+     $user=$_SESSION['uid'];
+     echo $user;
+     echo" <input type='submit' name='welcome' value='Logout' /> ";
      echo "<input id='user' type=hidden value='$user'>" ;
      echo'<div class="container"><div style="height: 50px;"></div>';
      echo(' <table class="table  table-bordered table-hover" id="tab" >');
