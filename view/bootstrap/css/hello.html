@@ -1,0 +1,43 @@
+<html>
+<head>
+<link href="bootstrap.min.css" rel="stylesheet" media="screen">
+    <style type="text/css">
+        #parent{
+            display: flex;
+        }
+     .catg{
+             padding: 20px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            text-align: center;
+            height: 5px;
+            float:left;
+            display:inline;
+            width: 200px;
+            margin:5px;
+        }
+        a{text-decoration:none}
+
+
+    </style>
+
+
+
+</head>
+
+
+<body>
+
+<div class="btn-group">
+<pre>
+        <a class="btn dropdown-toggle" data-toggle="dropdown href="?page={{  walk.previous_page_number }}">previous</a><a class="btn dropdown-toggle" data-toggle="dropdown href="?page={{  walk.previous_page_number }}">{{ walk.number }}</a><a class="btn dropdown-toggle" data-toggle="dropdown href="?page={{ walk.next_page_number }}">next</a>      
+    </pre>
+</div>
+
+
+</body>
+</html>
+
+
+

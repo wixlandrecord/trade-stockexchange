@@ -1,0 +1,16 @@
+<html>
+<body>
+
+<div class="hero-unit">
+  <h1>{{ selected_post.title }}</h1>
+<p> 
+ {{ selected_post.post_category }}<br>
+ {{ selected_post.content|safe}} at :<br>
+ {{ selected_post.created }}</p>
+<p>
+    <a class="btn btn-primary btn-large"> Read more</a>        
+</p>
+</div>
+
+</body>
+</html>

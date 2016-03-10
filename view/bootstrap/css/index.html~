@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <style type="text/css">
+        body{
+            font-family: Arial;
+            font-size: 16px;
+        }
+        .post{
+            padding: 50px;
+            font-size: 14px;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            width: 765px ;
+            height: 100px;
+
+
+            margin-right: auto ;
+        }
+        .cat{
+             padding: 20px;
+            font-size: 16px;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            text-align: center;
+            height: 5px;
+            float:right;
+            display:inline;
+            width: 200px;
+            margin:5px;
+
+        }
+        .tb{
+            float:left;
+            display:inline;
+            padding-left:40px;
+
+        }
+     a{text-decoration:none}
+    </style>
+
+</head>
+<body>
+<table class="tb">
+
+<! (box) postes renderd from view-->
+{% for pag in box %}
+<tr>
+<td><div class="post">
+<! show attributes of post>
+    {{ pag.title}}<br>
+  {{ pag.post_category}}<br>
+  {{ pag.content|safe|truncatewords_html:20}} : at :
+  {{ pag.created}}<br><br>
+
+    <a href={{pag.id}}/posts>Read More</a>
+
+</div></td>
+</tr>
+
+{% endfor %}
+<! pagination section>
+ <div class="pagination pagination-centered">
+<ul>
+    {% if box.has_previous %}<li><a href="?page={{  box.previous_page_number }}">prev</a></li>{% endif %}
+    <li><a  href="{{ walk.number }}">{{ box.number}}</a>
+     {% if box.has_next %}<li><a href="?page={{ box.next_page_number }}">next</a></li>{% endif %}
+ </ul>
+</div>
+{{ page.render }}
+
+</body>
+</html>
+
+
