@@ -1,6 +1,6 @@
 <?php   
     include_once('dbFunction.php');  
-    if($_POST['welcome']){  
+    if(isset($_POST['welcome'])){  
         // remove all session variables  
         session_unset();   
   
@@ -12,55 +12,31 @@
     }  
 ?>  
 <!DOCTYPE html>  
- <html lang="en" class="no-js">  
+ <html>  
  <head>  
-        <meta charset="UTF-8" />  
-        <title>Login and Registration Form with HTML5 and CSS3</title>  
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">   
-        <meta name="description" content="Login and Registration Form with HTML5 and CSS3" />  
-        <meta name="keywords" content="html5, css3, form, switch, animation, :target, pseudo-class" />  
-        <meta name="author" content="Codrops" />  
-        <link rel="shortcut icon" href="../favicon.ico">   
-        <link rel="stylesheet" type="text/css" href="css/demo.css" />  
-        <link rel="stylesheet" type="text/css" href="css/style2.css" />  
-        <link rel="stylesheet" type="text/css" href="css/animate-custom.css" />  
+        <title>Stock Market</title> 
     </head>  
-    <body>  
-        <div class="container">  
-              
-              
+    <body>      
             <header>  
-                <h1>Welcome Form  </h1>  
-            </header>  
-            <section>               
-                <div id="container_demo" >  
-                     
-                    <a class="hiddenanchor" id="toregister"></a>  
-                    <a class="hiddenanchor" id="tologin"></a>  
-                    <div id="wrapper">  
-                        <div id="login" class="animate form">  
-                           <form name="login" method="post" action="">  
-                                <h1>Welcome </h1>   
+                <h1>Welcome</h1>  
+            </header>   
+                           <form method="post" action="">   
                                 <p>   
-                                    <label for="emailid" class="uname"   > Your Name </label>  
+                                    <label> Your Name </label>  
                                    <?=$_SESSION['username']?>  
                   
                                 </p>  
                                 <p>   
-                                    <label for="email" class="youpasswd"  > Your Email </label>  
+                                    <label> Your Email </label>  
                                     <?=$_SESSION['email']?>  
                                 </p>  
+                                 <p>   
+                                    <label> Your id </label>  
+                                    <?=$_SESSION['uid']?>  
+                                </p> 
                                    
-                                <p class="login button">   
+                                <p>   
                                     <input type="submit" name="welcome" value="Logout" />   
                                 </p>  
                                    
-                            </form>  
-                        </div>  
-  
-                          
-                    </div>  
-                </div>    
-            </section>  
-        </div>  
-   
+                            </form>     

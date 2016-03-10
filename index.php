@@ -2,19 +2,21 @@
     include_once('dbFunction.php');  
        
     $funObj = new dbFunction();  
-    if($_POST['login']){  
+    if(isset($_POST['login'])){  
         $email = $_POST['email'];  
         $passwd = $_POST['passwd'];  
-        $user = $funObj->Login($email, $passwd);  
+        $user = $funObj->Login($email, $passwd); 
+        echo "opalallaaaa"; 
+        echo $user;
         if ($user) {  
             // Registration Success  
-           header("location:home.php");  
+          header("location:home.php");  
         } else {  
             // Registration Failed  
             echo "<script>alert('Email / Passwd Not Match')</script>";  
         }  
     }  
-    if($_POST['register']){  
+    if(isset($_POST['register'])){  
         $username = $_POST['username'];  
         $email = $_POST['email'];  
         $passwd = $_POST['passwd'];  
