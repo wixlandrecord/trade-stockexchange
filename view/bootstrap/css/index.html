@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body>
+
+
+<!show all posts >
+
+<div class="hero-unit">
+{% for pag in box %}
+     <h1> {{ pag.title }}<h1>
+<p>
+  {{ pag.post_category}}<br>
+  {{ pag.content|safe|truncatewords_html:20 }} | at :<br>
+  {{ pag.created }}<br></p>
+<p>
+ <a  class="btn btn-primary btn-large" href={{ pag.id}}/posts>Read More</a>
+</p>
+{% endfor %}
+</div>
+
+
+<! pagination section>
+ <div class="pagination pagination-centered">
+<ul>
+    {% if box.has_previous %}<li><a href="?page={{  box.previous_page_number }}">prev</a></li>{% endif %}
+    <li><a  href="{{ walk.number }}">{{ box.number}}</a>
+     {% if box.has_next %}<li><a href="?page={{ box.next_page_number }}">next</a></li>{% endif %}
+ </ul>
+</div>
+{{ page.render }}
+
+</body>
+</html>
+
+
