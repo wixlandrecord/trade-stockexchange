@@ -81,7 +81,7 @@
              foreach($data as $i => $row)   
     echo('</table>');
         }
-        
+        echo '</div>';
     echo(' <table class="table">');
     
     //////////////////// ADD Alarm ////////////////////
@@ -116,7 +116,7 @@
                 </div>
           </div>
        </div></td>
-       <td><input class="form-control tx " style="height: 25px;" name="value" type="number" minimum=0 />
+       <td><input class="form-control tx " style="height: 25px;" name="value" type="number" min=1 />
          <input type="button" value="Add Alarm" class="btn btn-info" id="btn">
          </td></tr>
     </table>';  
@@ -130,6 +130,7 @@
     td,th{
         vertical-align: middle !important;
         text-align: center !important;
+    }
 </style>
 
 </body>
