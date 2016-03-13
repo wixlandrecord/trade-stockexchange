@@ -11,6 +11,7 @@
                 //self::$db = new dbConnect();
 
                  self::$db= mysqli_connect('localhost','root','123','stockMarket');
+
                     if (!self::$db)
                     {
                         die ('Error' .mysql_connect_error());

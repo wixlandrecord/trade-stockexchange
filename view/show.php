@@ -124,9 +124,9 @@
         echo'</div>';
         echo '</div>';
         }
-       // echo'</div>';
-      //  echo '</div>';
-    echo(' <table class="table table-responsive">');
+
+        echo '</div>';
+    echo(' <table class="table">');
     
     //////////////////// ADD Alarm ////////////////////
     echo'<tr><td><select  name="alarm" id="sell">    
