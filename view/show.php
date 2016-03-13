@@ -18,7 +18,7 @@
         <link rel="stylesheet" media="screen" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
         <link rel="stylesheet" href="assets/css/bootstrap.min.css">
         <link rel="stylesheet" href="assets/css/font-awesome.min.css">
-
+         <title>Stock Market</title>
         <!-- Custom styles for our template -->
         <link rel="stylesheet" href="assets/css/bootstrap-theme.css" media="screen" >
         <link rel="stylesheet" href="assets/css/main.css">
@@ -37,7 +37,7 @@
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav pull-right">
                 <li><a class="btn" href="update.php">update My Profil</a></li>
-                    <li><a class="btn" href="signin.php">Log Out</a></li>
+                    <li><a class="btn" href="index.html">Log Out</a></li>
                 </ul>
             </div><!--/.nav-collapse -->
         </div>
@@ -57,9 +57,8 @@
     }  
      
      $user=$_SESSION['uid'];
-     echo $user;
      //echo" <input type='submit' name='welcome' action='signin.php'  value='Logout' /> ";
-     //echo "<input id='user' type=hidden value='$user'>" ;
+     echo "<input id='user' type=hidden value='$user'>" ;
       echo '<div class="form-horizontal">';
      echo'<div class="container"><div style="height: 50px;"></div>';
      echo'<div class="table-responsive">';
@@ -124,9 +123,9 @@
         echo'</div>';
         echo '</div>';
         }
-
-        echo '</div>';
-    echo(' <table class="table">');
+       // echo'</div>';
+      //  echo '</div>';
+    echo(' <table class="table table-responsive">');
     
     //////////////////// ADD Alarm ////////////////////
     echo'<tr><td><select  name="alarm" id="sell">    
@@ -183,7 +182,7 @@
             <div class="widget-body">
               <p class="simplenav">
                 
-                <b><a href="signin.php">log Out</a></b>
+                <b><a href="index.html">log Out</a></b>
               </p>
             </div>
           </div>

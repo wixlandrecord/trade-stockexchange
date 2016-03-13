@@ -51,7 +51,7 @@
         <meta name="author"      content="Sergey Pozhilov (GetTemplate.com)">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>Bootstrap Login &amp; Register Templates</title>
+        <title>Stock Market</title>
 
         <!-- CSS -->
         <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
@@ -191,7 +191,6 @@
             <div class="widget-body">
               <p class="simplenav">
                 
-                <b><a href="signin.php">log Out</a></b>
               </p>
             </div>
           </div>

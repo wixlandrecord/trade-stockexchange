@@ -3,7 +3,7 @@
 	    <head>
         <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
         	<link rel="shortcut icon" href="assets/images/gt_favicon.png">
-	
+	 <title>Stock Market</title>
 	<link rel="stylesheet" media="screen" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
 	<link rel="stylesheet" href="assets/css/bootstrap.min.css">
 	<link rel="stylesheet" href="assets/css/font-awesome.min.css">
@@ -25,19 +25,22 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav pull-right">
-                <li><a class="btn" href="update.php">update My Profil</a></li>
-                    <li><a class="btn" href="signin.php">Log Out</a></li>
+                <li><a class="btn" href="show.php">My Alarms</a></li>
+                    <li><a class="btn" href="index.html">Log Out</a></li>
                 </ul>
             </div><!--/.nav-collapse -->
         </div>
     </div>
 <?php
 require("../model/DB.php");
+include_once('dbFunction.php');
+$user=$_SESSION['uid'];
+echo "<input id='user' type=hidden value='$user'>" ;
 echo '<div class="form-horizontal">';
 echo '<div class="container-fluid">
 <div style="height:50px";></div>';
 	echo '<form class="form-horizontal">';
- $result=mysqli_query($link, "select * from user where id=1 ");       
+ $result=mysqli_query($link, "select * from user where id='$user' ");       
         while($row = mysqli_fetch_assoc($result))
             {
               $data[]=$row;             
@@ -49,7 +52,7 @@ echo '<div class="container-fluid">
 		<label class="control-label" >Username:</label>
 		<div class="input-group col-md-5">
 
-			<input class="form-control" id="fn" name="fname" type="text" value='.$row['username'].'>
+			<input class="form-control" id="fn" name="fname" style="height: 50px;"type="text" value='.$row['username'].'>
 		</div>
 	</div><br> ');
 
@@ -58,19 +61,19 @@ echo '<div class="container-fluid">
 		<label class="control-label" >email:</label>
 		<div class="input-group col-md-5">
 
-			<input class="form-control" id="em" name="email" type="text" value='.$row['email'].'>
+			<input class="form-control" id="em" style="height: 50px;" name="email" type="text" value='.$row['email'].'>
 		</div>
 	</div><br>';
-		/*echo'<div class="form-group">
+		echo'<div class="form-group">
 		<label class="control-label" >password:</label>
 		<div class="input-group col-md-5">
 
-			<input class="form-control" id="pas" name="password" type="text" value='.md5($row['passwd']).'>
-		</div>
-	</div><br>';*/
+			<input class="form-control" id="pas" name="password" type="password" style="height: 50px;">';
 
 
-echo '<button type="submit" class="btn btn-primary " id="up">update</button>
+
+echo '<br><br><br> <br>
+<button type="submit" class="btn btn-primary" id="up">update</button>
 </form>
 	</div> </div>';
 			 }
@@ -89,7 +92,7 @@ echo '<button type="submit" class="btn btn-primary " id="up">update</button>
             <div class="widget-body">
               <p class="simplenav">
                 
-                <b><a href="signin.php">log Out</a></b>
+                <b><a href="index.html">log Out</a></b>
               </p>
             </div>
           </div>

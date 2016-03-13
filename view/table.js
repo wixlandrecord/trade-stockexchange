@@ -3,7 +3,7 @@ $(function () {
 
         $(".container").on("click",".del",function(){ 
 			alarm=$(this).closest("tr").find(".Id").text().trim();
-            alert(alarm);
+            //alert(alarm);
             $(this).closest("tr").remove();          
             $.ajax({
                 url:"http://localhost/php_project/model/delete.php",
@@ -15,11 +15,11 @@ $(function () {
 		
     $("#btn").on("click",function(){ 
         var share=$('#sell :selected').text().trim();
-		alert(share);
+		//alert(share);
         var value=$(".tx").val().trim();
-		alert(value);
+		//alert(value);
         var check= $("input[name='level']:checked").val();
-		alert(check);
+		//alert(check);
         $.ajax({
                 url:"http://localhost/php_project/model/add.php",
                 method:"POST",
@@ -35,9 +35,9 @@ $(function () {
 	
 	$(".container").on("click",".chek",function(){
         var enable= ($(this).is(':checked'))?true:false;
-		alert(enable);
+		//alert(enable);
 		var alarm2=$(this).closest("tr").find(".Id").text().trim();
-		alert(alarm2);
+		//alert(alarm2);
 		$.ajax({
 				url:"http://localhost/php_project/model/enable.php",
                 method:"POST",
