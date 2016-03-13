@@ -23,17 +23,19 @@ DROP TABLE IF EXISTS `alarm`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `alarm` (
-  `user_id` int(11) NOT NULL DEFAULT '0',
-  `share_code` int(11) NOT NULL DEFAULT '0',
-  `enable` enum('true','false') DEFAULT NULL,
-  `value` double DEFAULT NULL,
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) DEFAULT NULL,
+  `share_code` int(11) DEFAULT NULL,
+  `enable` enum('true','false') DEFAULT 'true',
+  `value` double NOT NULL,
   `last_trigger` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `checker` enum('below','above') DEFAULT NULL,
-  PRIMARY KEY (`user_id`,`share_code`),
+  `cheker` enum('below','above') NOT NULL DEFAULT 'below',
+  PRIMARY KEY (`id`),
+  KEY `user_id` (`user_id`),
   KEY `share_code` (`share_code`),
   CONSTRAINT `alarm_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`),
   CONSTRAINT `alarm_ibfk_2` FOREIGN KEY (`share_code`) REFERENCES `share` (`code`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -42,6 +44,7 @@ CREATE TABLE `alarm` (
 
 LOCK TABLES `alarm` WRITE;
 /*!40000 ALTER TABLE `alarm` DISABLE KEYS */;
+INSERT INTO `alarm` VALUES (1,1,2,'true',11,'2016-03-11 22:00:00','below'),(5,4,4,'true',10,'2016-03-08 22:00:00','below');
 /*!40000 ALTER TABLE `alarm` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -53,11 +56,11 @@ DROP TABLE IF EXISTS `share`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `share` (
-  `code` int(11) NOT NULL DEFAULT '0',
+  `code` int(10) NOT NULL AUTO_INCREMENT,
   `name` varchar(50) DEFAULT NULL,
   `price` double DEFAULT NULL,
   PRIMARY KEY (`code`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -66,6 +69,7 @@ CREATE TABLE `share` (
 
 LOCK TABLES `share` WRITE;
 /*!40000 ALTER TABLE `share` DISABLE KEYS */;
+INSERT INTO `share` VALUES (1,'deal',1.5),(2,'xyz',10),(3,'xyz',10),(4,'apl',10),(5,'kl',52);
 /*!40000 ALTER TABLE `share` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -77,14 +81,13 @@ DROP TABLE IF EXISTS `user`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `user` (
-  `id` int(11) NOT NULL DEFAULT '0',
-  `fname` varchar(50) DEFAULT NULL,
-  `lname` varchar(50) DEFAULT NULL,
+  `id` int(10) NOT NULL AUTO_INCREMENT,
   `email` varchar(50) DEFAULT NULL,
   `passwd` varchar(50) DEFAULT NULL,
   `gender` enum('male','female') DEFAULT NULL,
+  `username` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -93,6 +96,7 @@ CREATE TABLE `user` (
 
 LOCK TABLES `user` WRITE;
 /*!40000 ALTER TABLE `user` DISABLE KEYS */;
+INSERT INTO `user` VALUES (1,'carolinsamy94@gmail.com','25f9e794323b453885f5181f1b624d0b',NULL,'carolinesamy'),(2,'ramez@gmail.com','202cb962ac59075b964b07152d234b70',NULL,'ramez'),(3,'koky@yahoo.com','202cb962ac59075b964b07152d234b70',NULL,'koky'),(4,'carolinsamy94@gmail.com','1234','female','caroline');
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -105,4 +109,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-03-06 18:40:44
+-- Dump completed on 2016-03-12 22:09:11
